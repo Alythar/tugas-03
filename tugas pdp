@@ -1,0 +1,89 @@
+import java.util.Scanner;
+
+class Kasir {
+  public static void main(String[] argumen) {
+
+    boolean programBerjalan = true;
+    //boolean menunjukan antara output true atau false.
+    //boolean diatas menghasilkan output true.
+
+    int totalBarang1 = 0;
+    int totalBarang2 = 0;
+    int totalBarang3 = 0;
+    int totalBarang4 = 0;
+    int totalKeuntungan = 0;
+    //deklarasi kalau variabel diatas itu integer
+
+    Scanner inputPengguna = new Scanner(System.in);
+    //buat membaca variabel yang mau diinput 
+    int nomorBarangDibeli;
+    int kuantitasBarangDibeli;
+    //deklarasi variabel yang nanti kebaca scanner, inputnya integer
+    String kataPembuka;
+    //deklarasi variabel string
+
+    while(programBerjalan) {
+        //buat pengulangan
+      kataPembuka = "========================================================";
+      kataPembuka += "\nSelamat datang di Toko Impian, mau beli barang apa ?";
+      kataPembuka += "\n1. Poster Hidup bahagia dunia akhirat ($ 30) - " + totalBarang1 + " barang terjual";
+      kataPembuka += "\n2. Poster Kapal pesiar dan uang 63 trilyun rupiah ($ 20) - " + totalBarang2 + " barang terjual";
+      kataPembuka += "\n3. Poster Kemampuan untuk bernapas di dalam air ($ 35) - " + totalBarang3 + " barang terjual";
+      kataPembuka += "\n4. Poster Kebun berisi tomat dan apel untuk dijual ($ 12) - " + totalBarang4 + " barang terjual";
+      kataPembuka += "\n9. Program ini kurang bermanfaat, saya memilih keluar";
+      kataPembuka += "\n\nTotal keuntungan toko saat ini $ " + totalKeuntungan + ",,, alhamdulillah";
+      kataPembuka += "\n========================================================";
+      kataPembuka += "\n\nPilih nomor barang (1 / 2 / 3 / 4):";
+
+      System.out.println(kataPembuka);
+      nomorBarangDibeli = inputPengguna.nextInt();
+      //nanti kebaca scanner baru input data berupa integer sesuai yang udah dideklarasiin di atas.
+
+      if (nomorBarangDibeli == 1 || nomorBarangDibeli == 2 || nomorBarangDibeli == 3 || nomorBarangDibeli == 4) {
+          //pengkondisian if.
+          //logical operator or untuk mengembalikan nilai true, kalau salah satu dari kondisi pembanding bernilai true.
+
+        System.out.println("Barang nomor " + nomorBarangDibeli + " dipilih\nMau berapa banyak ?");
+        kuantitasBarangDibeli = inputPengguna.nextInt();
+        //input barang yang dibeli (integer).
+
+        System.out.println("Barang nomor " + nomorBarangDibeli + " dibeli sejumlah " + kuantitasBarangDibeli + " buah");
+
+        switch(nomorBarangDibeli) {
+            //percabangan, kalau pake if nanti terlalu banyak kurang praktis.
+          case 1:
+              //keadaan 1
+            totalBarang1 += kuantitasBarangDibeli;
+            totalKeuntungan += (kuantitasBarangDibeli * 30);
+            break;
+          case 2:
+              //keadaan 2
+            totalBarang2 += kuantitasBarangDibeli;
+            totalKeuntungan += (kuantitasBarangDibeli * 20);
+            break;
+          case 3:
+              //keadaan 3
+            totalBarang3 += kuantitasBarangDibeli;
+            totalKeuntungan += (kuantitasBarangDibeli * 35);
+            break;
+          case 4:
+              //keadaan 4
+            totalBarang4 += kuantitasBarangDibeli;
+            totalKeuntungan += (kuantitasBarangDibeli * 12);
+            break;
+        }
+
+      } else if (nomorBarangDibeli == 9) {
+          //jika pernyataan if diatas tidak terpenuhi maka bisa memakai else atau pilihan lain.
+          //else diatas dengan pengkondisian if.
+          //else bisa dengan atau tanpa pengkondisian if.
+        programBerjalan = false; 
+        System.out.println("Sayang sekali, kamu melewatkan barang rahasia");
+      } else {
+          //else tanpa pengkondisian.
+        System.out.println("Apa yang kamu pilih tidak layak untuk dibeli");
+      }
+    }
+  }
+}
+
